@@ -4,16 +4,19 @@
 #define PRIME_POINT_X (7369)
 #define PRIME_POINT_Y (7351)
 
-#include "Tools.hpp"
+#include <iostream>
 #include <vector>
+#include "Tools.hpp"
 
 struct Point{
     int x, y;
+    Point() = default;
     Point(int _x, int _y) : x(_x), y(_y){}
 };
 struct Rectangle
 {
     Point lower_left, upper_right;
+    Rectangle() = default;
     Rectangle(Point _lower_left, Point _upper_right) : lower_left(_lower_left), upper_right(_upper_right){}
 };
 
