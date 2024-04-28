@@ -1,5 +1,15 @@
 #include "Alg2Map.hpp"
 
+
+std::pair<std::vector<int>, std::vector<int>> Alg2Map::CompressCoords(std::vector<Rectangle>& rects){
+	std::set<int> x_proj, y_proj;
+    for (auto& rect : rects)
+    {
+        x_proj.insert(rect.lower_left.x); x_proj.insert(rect.upper_right.x);
+        y_proj.insert(rect.lower_left.y); y_proj.insert(rect.upper_right.y);
+    }
+	return {std::vector<int>(x_proj.begin(), x_proj.end()), std::vector<int>(y_proj.begin(), y_proj.end())};
+}
 int Alg2Map::BinSearch(std::vector<int>& v, int target){
     int l = 0, r = v.size() - 1;
     while (l <= r)
@@ -14,15 +24,11 @@ int Alg2Map::BinSearch(std::vector<int>& v, int target){
     }
     return r;
 }
+
 void Alg2Map::Preprocess(std::vector<Rectangle>& rects, std::vector<Point>& points){
-    std::set<int> x_proj, y_proj;
-    for (auto& rect : rects)
-    {
-        x_proj.insert(rect.lower_left.x); x_proj.insert(rect.upper_right.x);
-        y_proj.insert(rect.lower_left.y); y_proj.insert(rect.upper_right.y);
-    }
-    x_proj_vec = std::vector<int>(x_proj.begin(), x_proj.end());
-    y_proj_vec = std::vector<int>(y_proj.begin(), y_proj.end());
+    std::pair<std::vector<int>, std::vector<int>> compressedCoords = CompressCoords(rects);
+    x_proj_vec = compressedCoords.first;
+    y_proj_vec = compressedCoords.second;
     std::map<int, int> xScale, yScale;
     for (size_t i = 0; i < x_proj_vec.size(); i++)
         xScale[x_proj_vec[i]] = i;
@@ -46,10 +52,10 @@ std::vector<int> Alg2Map::CalcAnswers(std::vector<Rectangle>& rects, std::vector
     {
         int xIndPoint = BinSearch(x_proj_vec, points[i].x);
         int yIndPoint = BinSearch(y_proj_vec, points[i].y);
-        if (xIndPoint < 0)
-            xIndPoint = 0;
-
-        ans[i] = mat[yIndPoint][xIndPoint];
+        if (xIndPoint < 0 || yIndPoint < 0)
+            ans[i] = 0;
+        else
+            ans[i] = mat[yIndPoint][xIndPoint];
     }
     return ans;
 }

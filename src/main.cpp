@@ -1,7 +1,7 @@
 #include "DataGenerator.hpp"
 #include "Alg1Naive.hpp"
 #include "Alg2Map.hpp"
-
+#include "Alg3SegTree.hpp"
 
 int main(){
     // DataGenerator dataGenerator(4, 6);
@@ -14,12 +14,15 @@ int main(){
     // Alg1Naive alg1;
     // std::vector<int> ansAlg1 = alg1.CalcAnswers(rects1, points1);
     
-    Alg2Map alg2(rects1, points1);
-    std::vector<int> ansAlg2 = alg2.CalcAnswers(rects1, points1);
+    // Alg2Map alg2(rects1, points1);
+    // std::vector<int> ansAlg2 = alg2.CalcAnswers(rects1, points1);
 
-    for (size_t i = 0; i < ansAlg2.size(); i++)
+    Alg3SegTree alg3(rects1);
+    std::vector<int> ansAlg3 = alg3.CalcAnswers(rects1, points1);
+    
+    for (size_t i = 0; i < ansAlg3.size(); i++)
     {
-        std::cout << ansAlg2[i] << "\n";
+        std::cout << ansAlg3[i] << "\n";
     }
     
     return 0;

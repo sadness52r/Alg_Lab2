@@ -4,7 +4,6 @@ DataGenerator::DataGenerator(int num_rects, int num_points){
     this->num_rects = num_rects;
     this->num_points = num_points;
 }
-
 std::vector<Rectangle> DataGenerator::CreateRectangles() const{
     std::vector<Rectangle> rectangles(num_rects);
     for (size_t i = 0; i < num_rects; i++)
