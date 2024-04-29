@@ -25,7 +25,7 @@ private:
     std::vector<int> x_proj_vec, y_proj_vec;
     std::vector<Node*> roots;
 
-    Node* BuildTree(std::vector<int>& arr, int l, int r);
+    Node* BuildTree(int l, int r);
     Node* InsertNode(Node* node, int begin, int end, int value);
     void BuildPersistentSegmentTree(std::vector<Rectangle>& rects);
     int GetAnswer(Node* node, int target);

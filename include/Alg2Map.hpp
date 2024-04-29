@@ -11,7 +11,6 @@ private:
     std::vector<int> x_proj_vec, y_proj_vec;
     std::vector<std::vector<int>> mat;
 
-    int BinSearch(std::vector<int>& v, int target);
     void Preprocess(std::vector<Rectangle>& rects, std::vector<Point>& points);
 public:
     Alg2Map(std::vector<Rectangle>& rects, std::vector<Point>& points);

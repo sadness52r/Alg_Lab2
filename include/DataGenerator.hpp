@@ -9,6 +9,8 @@
 #include <set>
 #include "Tools.hpp"
 
+#define NUM_STEPS (5)
+
 struct Point{
     int x, y;
     Point() = default;

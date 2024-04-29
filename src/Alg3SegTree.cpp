@@ -32,12 +32,12 @@ Alg3SegTree::Alg3SegTree(std::vector<Rectangle>& rects){
     BuildPersistentSegmentTree(rects);
 }
 
-Node* Alg3SegTree::BuildTree(std::vector<int>& arr, int l, int r){
+Node* Alg3SegTree::BuildTree(int l, int r){
     if (l + 1 == r)
-        return new Node(arr[l], l, r, nullptr, nullptr);
+        return new Node(0, l, r, nullptr, nullptr);
     int mid = (l + r) / 2;
-    Node* left = BuildTree(arr, l, mid);
-    Node* right = BuildTree(arr, mid, r);
+    Node* left = BuildTree(l, mid);
+    Node* right = BuildTree(mid, r);
 
     return new Node(left->val + right->val, left->leftInd, right->rightInd, left, right);
 }
@@ -65,17 +65,17 @@ void Alg3SegTree::BuildPersistentSegmentTree(std::vector<Rectangle>& rects){
         scans[ind++] = new Scan(
             BinSearch(x_proj_vec, rect.lower_left.x), 
             BinSearch(y_proj_vec, rect.lower_left.y), 
-            BinSearch(y_proj_vec, rect.upper_right.y) - 1,
+            BinSearch(y_proj_vec, rect.upper_right.y),
             1);
         scans[ind++] = new Scan(
             BinSearch(x_proj_vec, rect.upper_right.x), 
             BinSearch(y_proj_vec, rect.lower_left.y), 
-            BinSearch(y_proj_vec, rect.upper_right.y) - 1,
+            BinSearch(y_proj_vec, rect.upper_right.y),
             -1);
     }
     std::sort(scans.begin(), scans.end(), [](Scan* a, Scan* b){return a->x_action < b->x_action;});
 
-    Node* root = BuildTree(std::vector<int>(y_proj_vec.size(), 0), 0, y_proj_vec.size());
+    Node* root = BuildTree(0, y_proj_vec.size());
     int endX = scans[0]->x_action;
     ind = 0;
     for(Scan* scan : scans){

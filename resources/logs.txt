@@ -1,0 +1,81 @@
+Num rectangles: 1
+Alg1:
+	Alg time: 3679400
+Alg2:
+	Preprocess time: 23800
+	Alg time: 4723000
+Alg3:
+	Preprocess time: 19800
+	Alg time: 5592800
+Num rectangles: 2
+Alg1:
+	Alg time: 6656000
+Alg2:
+	Preprocess time: 18800
+	Alg time: 6212600
+Alg3:
+	Preprocess time: 18600
+	Alg time: 7605600
+Num rectangles: 4
+Alg1:
+	Alg time: 9982000
+Alg2:
+	Preprocess time: 40000
+	Alg time: 7677800
+Alg3:
+	Preprocess time: 28000
+	Alg time: 9478400
+Num rectangles: 8
+Alg1:
+	Alg time: 18903600
+Alg2:
+	Preprocess time: 160000
+	Alg time: 10404400
+Alg3:
+	Preprocess time: 48000
+	Alg time: 12307800
+Num rectangles: 16
+Alg1:
+	Alg time: 29468600
+Alg2:
+	Preprocess time: 1109000
+	Alg time: 12529600
+Alg3:
+	Preprocess time: 94600
+	Alg time: 14942400
+Num rectangles: 32
+Alg1:
+	Alg time: 54604000
+Alg2:
+	Preprocess time: 8655400
+	Alg time: 15313800
+Alg3:
+	Preprocess time: 181600
+	Alg time: 19770600
+Num rectangles: 64
+Alg1:
+	Alg time: 105030000
+Alg2:
+	Preprocess time: 64042400
+	Alg time: 17672400
+Alg3:
+	Preprocess time: 425200
+	Alg time: 24866000
+Num rectangles: 128
+Alg1:
+	Alg time: 203707800
+Alg2:
+	Preprocess time: 561773400
+	Alg time: 21118800
+Alg3:
+	Preprocess time: 759200
+	Alg time: 28148800
+Num rectangles: 256
+Alg1:
+	Alg time: 398620000
+Alg2:
+	Preprocess time: 5064114200
+	Alg time: 24094000
+Alg3:
+	Preprocess time: 1728600
+	Alg time: 33364000
